@@ -8,10 +8,11 @@ public class PlayerMovementScript : MonoBehaviour
     public float playerSpeed;
     float movementY;
     public bool isPlayer1;
-    public Rigidbody2D rb;
+    Rigidbody2D rb;
+    public Vector3 startPosition;
     void Start()
     {
-       
+       rb= GetComponent<Rigidbody2D>(); 
     }
 
     // Update is called once per frame
@@ -27,5 +28,10 @@ public class PlayerMovementScript : MonoBehaviour
         }
         rb.velocity =new Vector2(rb.velocity.x ,movementY* playerSpeed);
         
+    }
+    public void RestartGame()
+    {
+        rb.velocity = Vector3.zero;
+        transform.position = startPosition;
     }
 }
