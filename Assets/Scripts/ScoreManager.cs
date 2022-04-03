@@ -14,14 +14,24 @@ public class ScoreManager : MonoBehaviour
     BallMovement ball;
     PlayerMovementScript player1;
     PlayerMovementScript player2;
-
+    GameOver game;
+   
     private void Start()
     {
         player1 = GameObject.Find("Player1").GetComponent<PlayerMovementScript>();
         player2 = GameObject.Find("Player2").GetComponent<PlayerMovementScript>();
         ball = GameObject.Find("Ball").GetComponent<BallMovement>();
+        game= GameObject.Find("GameOverPanel").GetComponent<GameOver>();
+       game.gameOverpanel.SetActive(false);
     }
-
+    private void Update()
+    {
+        if(score1==10||score2==10)
+        {
+            game.gameOverpanel.SetActive(true);
+            game.WinText();
+        }
+    }
     public void Score1Calculator(int scoreValue)
     {
         score1 = score1 + scoreValue;
@@ -39,8 +49,7 @@ public class ScoreManager : MonoBehaviour
     public void ResetGame()
     {
         ball.RestartPosition();
-        player1.RestartGame();
-        player2.RestartGame();
+       
     }
 
 

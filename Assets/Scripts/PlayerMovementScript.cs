@@ -10,6 +10,7 @@ public class PlayerMovementScript : MonoBehaviour
     public bool isPlayer1;
     Rigidbody2D rb;
     public Vector3 startPosition;
+    GameObject player1;
     void Start()
     {
        rb= GetComponent<Rigidbody2D>(); 
@@ -29,9 +30,5 @@ public class PlayerMovementScript : MonoBehaviour
         rb.velocity =new Vector2(rb.velocity.x ,movementY* playerSpeed);
         
     }
-    public void RestartGame()
-    {
-        rb.velocity = Vector3.zero;
-        transform.position = startPosition;
-    }
+   
 }
