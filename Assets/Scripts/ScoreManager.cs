@@ -35,14 +35,14 @@ public class ScoreManager : MonoBehaviour
     public void Score1Calculator(int scoreValue)
     {
         score1 = score1 + scoreValue;
-        score1Text.text = score1.ToString();
+        score1Text.text = "Player1: "+score1.ToString();
         ResetGame();
     }
 
     public void Score2Calculator(int scoreValue)
     {
         score2 = score2 + scoreValue;
-        score2Text.text = score2.ToString();
+        score2Text.text = "Player2: " + score2.ToString();
         ResetGame();
     }
 
